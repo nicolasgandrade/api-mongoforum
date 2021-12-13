@@ -29,6 +29,12 @@ public class UserService {
         return repo.insert(obj);
     }
 
+    public User delete(String id) {
+        findById(id); //Se não encontrar o id, a exceção já é lançada;
+        repo.deleteById(id);
+        return null;
+    }
+
     //Retorna um user a partir do dto
     public User fromDto(UserDTO objDto) {
         return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
