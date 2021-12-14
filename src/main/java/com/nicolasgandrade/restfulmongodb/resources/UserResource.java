@@ -47,4 +47,12 @@ public class UserResource {
         User obj = service.delete(id);
         return ResponseEntity.noContent().build(); //noContent == 204;
     }
+
+    @PutMapping(value = "{id}")       //@RequestBody transforma o input JSON em um objeto UserDTO
+    public ResponseEntity<Void> update(@RequestBody UserDTO objDto, @PathVariable String id) {
+        User obj = service.fromDto(objDto); //Transforma UserDto em User
+        obj.setId(id);
+        obj = service.update(obj);
+        return ResponseEntity.noContent().build();
+    }
 }
