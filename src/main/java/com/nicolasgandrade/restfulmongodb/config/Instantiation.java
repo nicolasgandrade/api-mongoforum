@@ -3,6 +3,7 @@ package com.nicolasgandrade.restfulmongodb.config;
 import com.nicolasgandrade.restfulmongodb.domain.Post;
 import com.nicolasgandrade.restfulmongodb.domain.User;
 import com.nicolasgandrade.restfulmongodb.dto.AuthorDTO;
+import com.nicolasgandrade.restfulmongodb.dto.CommentDTO;
 import com.nicolasgandrade.restfulmongodb.repository.PostRepository;
 import com.nicolasgandrade.restfulmongodb.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,12 @@ public class Instantiation implements CommandLineRunner {
 
         Post post1 = new Post(null, sdf.parse("12/12/2012"), "Hoje é um dia especial", "Hoje é dia 12, do mês 12, no ano de 2012!", new AuthorDTO(maria));
         Post post2 = new Post(null, sdf.parse("01/01/2013"), "Feliz ano novo!", "Feliz ano novo, galera! Um ano muito próspero para vocês!", new AuthorDTO(rafaela));
+
+        CommentDTO cm1 = new CommentDTO(new AuthorDTO(gustavo), sdf.parse("13/12/12"), "Bacana");
+        CommentDTO cm2 = new CommentDTO(new AuthorDTO(maria), sdf.parse("01/01/2013"), "Feliz ano novo!");
+
+        post1.getComments().addAll(Arrays.asList(cm1));
+        post2.getComments().addAll(Arrays.asList(cm2));
 
         postRepository.saveAll(Arrays.asList(post1, post2));
 
