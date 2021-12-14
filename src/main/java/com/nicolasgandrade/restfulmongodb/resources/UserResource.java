@@ -1,5 +1,6 @@
 package com.nicolasgandrade.restfulmongodb.resources;
 
+import com.nicolasgandrade.restfulmongodb.domain.Post;
 import com.nicolasgandrade.restfulmongodb.domain.User;
 import com.nicolasgandrade.restfulmongodb.dto.UserDTO;
 import com.nicolasgandrade.restfulmongodb.services.UserService;
@@ -54,5 +55,11 @@ public class UserResource {
         obj.setId(id);
         obj = service.update(obj);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value = "/{id}/posts")
+    public ResponseEntity<List<Post>> listPosts(@PathVariable String id) {
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
     }
 }
