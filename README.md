@@ -36,3 +36,15 @@ Post JSON format:
 ```
 (GET) - http://localhost:8080/users/{id}/posts
 ```
+
+
+### :postbox: posts
+1. Return posts by id (get - 200 ok)
+```
+(GET) - http://localhost:8080/posts/{id}
+```
+
+2. EXTRA: Find posts by title (passed by parameter) (get - 200 ok)
+```
+(GET) - http://localhost:8080/posts/searchtitle?text={title or part of the title}
+```
