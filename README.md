@@ -5,7 +5,7 @@
 ![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)
 
 ## :point_right: About
-MongoForum is an API rest that simulates a forum where users can make posts and comment on these posts. The application was made using SpringBoot, SpringData and MongoDB as the database.
+MongoForum is an API rest that simulates a forum where users can post and comment on those posts. The application was made using SpringBoot, SpringData and MongoDB as the database.
 
 ## :cd: Getting Started
 1. Create a database in MongoDB with a collection called "user", and config the "application.properties" file (src/main/resources/application.properties) 
