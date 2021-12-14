@@ -48,3 +48,9 @@ Post JSON format:
 ```
 (GET) - http://localhost:8080/posts/searchtitle?text={title or part of the title}
 ```
+
+## Important:
+This is just a demo API, not a real application. Everytime the app starts, mongo database deletes all data. If you want to change this, you can configure the 
+Instantiation file (src/main/java/com/nicolasgandrade/restfulmongodb/config/instantiation).
+
+#### Heroku deploy coming soon
