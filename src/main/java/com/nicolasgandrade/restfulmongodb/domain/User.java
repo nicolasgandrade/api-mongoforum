@@ -1,9 +1,12 @@
 package com.nicolasgandrade.restfulmongodb.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Document(collection = "user")
@@ -14,6 +17,11 @@ public class User implements Serializable {
     private String id;
     private String name;
     private String email;
+
+    //@DBRef evidencia que se trata de outra coleção (a coleção "posts");
+    //lazy = true faz com que sejam carregados os dados básicos do user a priori, e a lista de posts sob demanda;
+    @DBRef(lazy = true)
+    private List<Post> posts = new ArrayList<>();
 
     public User() {
     }
@@ -46,6 +54,14 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     @Override
