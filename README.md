@@ -26,13 +26,13 @@ Post JSON format:
 ```
 
 
-2. "Action"ById: Return the object (get - 200 ok) || Update the object (put - 204 no content) || Delete the object (delete - 204 no content)
+2. "Action"ById: Return the user (get - 200 ok) || Update the user (put - 204 no content) || Delete the user (delete - 204 no content)
 ```
 (GET - PUT - DELETE) - http://localhost:8080/users/{id}
 ```
 
 
-3. Return user's posts by id (get - 200 ok)
+3. Return posts by user's id (get - 200 ok)
 ```
 (GET) - http://localhost:8080/users/{id}/posts
 ```
